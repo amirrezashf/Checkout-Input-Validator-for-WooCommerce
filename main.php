@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Smart Checkout Validator
  * Description: Prevents customers from submitting required WooCommerce checkout fields containing only emojis, invisible characters, half-spaces, or invalid content.
  * Version: 1.0.0
- * Author: امیررضا شایسته‌فر
+ * Author: Amirreza Shayesteh Far
  * Text Domain: wc-checkout-input-validator
  */
 
