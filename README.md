@@ -1,71 +1,197 @@
-WooCommerce Smart Checkout Validator
+# Checkout Input Validator for WooCommerce
 
-فارسی
+A lightweight WooCommerce plugin that prevents checkout submission when required billing fields contain only emojis, spaces, half-spaces, invisible characters, or invalid empty-looking content.
 
-افزونه WooCommerce Smart Checkout Validator از ثبت سفارش‌هایی که حاوی اطلاعات نامعتبر در فیلدهای ضروری تسویه حساب هستند جلوگیری می‌کند.
+## Description
 
-این افزونه بررسی می‌کند که کاربران فیلدهای مهم مانند نام، نام خانوادگی، شماره موبایل و ایمیل را تنها با ایموجی، فاصله، نیم‌فاصله یا سایر کاراکترهای نامرئی تکمیل نکرده باشند.
+Checkout Input Validator for WooCommerce adds extra validation to required WooCommerce checkout fields.
 
-امکانات
+It checks selected billing fields after checkout validation and prevents customers from submitting values that look filled but do not contain meaningful visible content.
 
-* جلوگیری از ثبت مقادیر فقط شامل ایموجی
-* جلوگیری از ثبت مقادیر فقط شامل فاصله
-* جلوگیری از ثبت مقادیر فقط شامل نیم‌فاصله (ZWNJ)
-* شناسایی و حذف کاراکترهای نامرئی یونیکد
-* اعتبارسنجی فیلدهای ضروری تسویه حساب ووکامرس
-* سبک، سریع و بدون نیاز به تنظیمات
-* سازگار با نسخه‌های جدید ووکامرس
+The plugin is useful for reducing invalid customer data caused by emoji-only input, invisible Unicode characters, zero-width spaces, half-spaces, and similar problematic characters.
 
-فیلدهای تحت بررسی
+## Features
 
-* نام
-* نام خانوادگی
-* شماره موبایل
-* ایمیل
+- Validates required WooCommerce checkout fields
+- Detects emoji-only values
+- Detects invisible Unicode characters
+- Detects zero-width characters and half-spaces
+- Detects empty-looking content
+- Shows checkout error messages
+- No custom database tables
+- No external API calls
+- No frontend JavaScript required
+- Lightweight single-file plugin
 
-نصب
+## Requirements
 
-1. پوشه افزونه را در مسیر wp-content/plugins/ آپلود کنید.
-2. افزونه را از بخش افزونه‌های وردپرس فعال کنید.
-3. از این پس اطلاعات نامعتبر در فرم تسویه حساب ووکامرس مسدود خواهند شد.
+- PHP 7.4+
+- WordPress 6.0+
+- WooCommerce 7.0+
 
-⸻
+## Installation
 
-WooCommerce Smart Checkout Validator
+1. Create a folder named `checkout-input-validator-for-woocommerce`.
+2. Place `main.php` inside it.
+3. Upload the folder to:
 
-English
+```text
+wp-content/plugins/
+```
 
-WooCommerce Smart Checkout Validator helps prevent invalid customer information from being submitted during the WooCommerce checkout process.
+4. Activate the plugin from WordPress admin.
 
-The plugin detects and blocks inputs that contain only emojis, whitespace, half-spaces (ZWNJ), invisible Unicode characters, or other non-visible content in required checkout fields.
+## Usage / How it Works
 
-Features
+After activation, the plugin automatically validates selected required checkout fields.
 
-* Prevents emoji-only submissions
-* Prevents whitespace-only submissions
-* Detects and blocks Zero Width Non-Joiner (ZWNJ)
-* Detects invisible Unicode characters
-* Validates required WooCommerce checkout fields
-* Lightweight and configuration-free
-* Compatible with modern WooCommerce versions
+Validated fields:
 
-Validated Fields
+- `billing_first_name`
+- `billing_last_name`
+- `billing_phone`
+- `billing_email`
 
-* First Name
-* Last Name
-* Phone Number
-* Email Address
+If a field contains only emojis, spaces, half-spaces, invisible characters, or control characters, checkout is blocked and an error message is shown.
 
-Installation
+## Data Storage
 
-1. Upload the plugin folder to wp-content/plugins/.
-2. Activate the plugin from the WordPress Plugins page.
-3. Invalid checkout submissions will automatically be blocked.
+The plugin does not store any data.
 
-Version
+It only validates checkout input during the WooCommerce checkout process.
 
-1.0.0
+## Development
 
-Author
+Built with:
+
+- WordPress Coding Standards
+- Native WordPress APIs
+- WooCommerce checkout validation hook
+- Server-side validation
+- Unicode-aware regular expressions
+- Sanitized input handling
+- Lightweight single-file architecture
+
+## Hooks
+
+- `woocommerce_after_checkout_validation`
+
+## Filters
+
+This version does not provide custom filters.
+
+## Future Improvements
+
+- Filterable validated field list
+- Customizable error messages
+- Optional validation for shipping fields
+
+## License
+
+GPL-2.0-or-later
+
+## Author
 
 Amirreza Shayesteh Far
+
+GitHub: https://github.com/amirrezashf
+
+---
+
+# اعتبارسنجی ورودی checkout ووکامرس
+
+یک افزونه سبک برای ووکامرس که از ثبت سفارش با فیلدهای ضروری شامل ایموجی، فاصله، نیم‌فاصله، کاراکترهای نامرئی یا محتوای ظاهراً خالی جلوگیری می‌کند.
+
+## توضیحات
+
+افزونه Checkout Input Validator for WooCommerce اعتبارسنجی اضافی برای فیلدهای ضروری checkout ووکامرس اضافه می‌کند.
+
+این افزونه بعد از اعتبارسنجی checkout، برخی فیلدهای صورتحساب را بررسی می‌کند و اگر مقدار واردشده محتوای قابل مشاهده و معنادار نداشته باشد، ثبت سفارش را متوقف می‌کند.
+
+این افزونه برای جلوگیری از ثبت اطلاعات نامعتبر مشتری، ورودی‌های فقط شامل ایموجی، کاراکترهای نامرئی، zero-width space، نیم‌فاصله و کاراکترهای مشابه کاربرد دارد.
+
+## ویژگی‌ها
+
+- اعتبارسنجی فیلدهای ضروری checkout ووکامرس
+- تشخیص مقدار فقط شامل ایموجی
+- تشخیص کاراکترهای Unicode نامرئی
+- تشخیص zero-width character و نیم‌فاصله
+- تشخیص محتوای ظاهراً خالی
+- نمایش خطای checkout
+- بدون جدول اختصاصی دیتابیس
+- بدون درخواست API خارجی
+- بدون نیاز به JavaScript فرانت‌اند
+- معماری سبک و تک‌فایلی
+
+## نیازمندی‌ها
+
+- PHP 7.4+
+- WordPress 6.0+
+- WooCommerce 7.0+
+
+## نصب
+
+1. یک پوشه با نام `checkout-input-validator-for-woocommerce` بسازید.
+2. فایل `main.php` را داخل آن قرار دهید.
+3. پوشه را در مسیر زیر آپلود کنید:
+
+```text
+wp-content/plugins/
+```
+
+4. افزونه را از پنل مدیریت وردپرس فعال کنید.
+
+## نحوه استفاده / عملکرد افزونه
+
+بعد از فعال‌سازی، افزونه به‌صورت خودکار فیلدهای مشخصی از checkout را بررسی می‌کند.
+
+فیلدهای بررسی‌شده:
+
+- `billing_first_name`
+- `billing_last_name`
+- `billing_phone`
+- `billing_email`
+
+اگر مقدار فیلد فقط شامل ایموجی، فاصله، نیم‌فاصله، کاراکترهای نامرئی یا control character باشد، ثبت سفارش متوقف می‌شود و پیام خطا نمایش داده می‌شود.
+
+## ذخیره‌سازی داده
+
+این افزونه هیچ داده‌ای ذخیره نمی‌کند.
+
+فقط هنگام فرایند checkout، ورودی‌ها را اعتبارسنجی می‌کند.
+
+## توسعه
+
+توسعه داده‌شده بر اساس:
+
+- WordPress Coding Standards
+- Native WordPress APIs
+- hook اعتبارسنجی checkout ووکامرس
+- اعتبارسنجی سمت سرور
+- regular expressionهای سازگار با Unicode
+- مدیریت sanitize شده ورودی‌ها
+- معماری سبک تک‌فایلی
+
+## هوک‌ها
+
+- `woocommerce_after_checkout_validation`
+
+## فیلترها
+
+این نسخه filter اختصاصی ندارد.
+
+## بهبودهای آینده
+
+- قابل تنظیم شدن فیلدهای بررسی‌شده
+- قابل تنظیم شدن پیام خطا
+- اعتبارسنجی اختیاری فیلدهای shipping
+
+## مجوز
+
+GPL-2.0-or-later
+
+## نویسنده
+
+Amirreza Shayesteh Far
+
+GitHub: https://github.com/amirrezashf
